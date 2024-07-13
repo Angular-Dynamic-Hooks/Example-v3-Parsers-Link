@@ -1,0 +1,10 @@
+<div id="jedi">
+  <a id="jedi-back" [routerLink]="'/home'">🢀 Back to home</a>
+  <div id="jedi-profile">
+    <img id="jedi-picture" src="{{ currentJedi.picture }}" />
+    <h3 id="jedi-name">{{ currentJedi.name }}</h3>
+  </div>
+  <div id="jedi-text">
+    <p id="jedi-description" [innerHTML]="currentJedi.description"></p>
+  </div>
+</div>

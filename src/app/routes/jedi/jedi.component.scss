@@ -1,0 +1,42 @@
+:host {
+}
+
+#jedi {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#jedi-back {
+  display: block;
+  background-color: #df6800;
+  margin: 0px 0px 10px 0px;
+  padding: 7px;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+}
+
+#jedi-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+#jedi-picture {
+  width: 150px;
+  height: 200px;
+  margin: 0px 0px 15px 0px;
+  object-fit: cover;
+}
+
+#jedi-name {
+  margin: 0px 0px 10px 0px;
+}
+
+#jedi-text {
+  padding: 10px 0px 0px 0px;
+}
+
+#jedi-description {
+  margin: 0px;
+}
