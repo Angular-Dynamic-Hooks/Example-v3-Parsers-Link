@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { HookParser, HookValue, HookComponentData, HookBindings } from 'ngx-dynamic-hooks';
 import { DynamicLinkComponent } from './dynamicLink.component';
 
@@ -6,7 +7,11 @@ import { DynamicLinkComponent } from './dynamicLink.component';
   providedIn: 'root'
 })
 export class DynamicLinkParser implements HookParser {
-    base = `${window.location.protocol}//${window.location.hostname}`;
+    base;
+
+    constructor(@Inject(DOCUMENT) private document: Document) {
+        this.base = `${this.document.location.protocol}//${this.document.location.hostname}`;
+    }
 
     public findHookElements(contentElement: HTMLElement, context: any): any[] {
         // First get all link elements
@@ -14,7 +19,7 @@ export class DynamicLinkParser implements HookParser {
         // Then filter them so that only those with own hostname remain
         .filter(linkElement => {
             const url = new URL(linkElement.getAttribute('href')!, this.base);
-            return url.hostname === window.location.hostname;
+            return url.hostname === this.document.location.hostname;
         }
         );
     }
@@ -29,7 +34,7 @@ export class DynamicLinkParser implements HookParser {
         // Extract what we need from the URL object and pass it along to DynamicLinkComponent
         return {
             inputs: {
-                routerLink: url.pathname,
+                path: url.pathname,
                 queryParams: Object.fromEntries(url.searchParams.entries()),
                 fragment: url.hash.replace('#', '')
             }

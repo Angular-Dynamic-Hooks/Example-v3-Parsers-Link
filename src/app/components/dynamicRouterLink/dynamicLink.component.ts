@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink]
 })
 export class DynamicLinkComponent {
-  @Input() routerLink: string = '';
+  @Input() path: string = '';
   @Input() queryParams: {[key: string]: any} = {};
   @Input() fragment: string = '';
 }
