@@ -12,14 +12,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink]
 })
 export class DynamicLinkComponent {
-  @Input() link: string = '';
+  @Input() routerLink: string = '';
   @Input() queryParams: {[key: string]: any} = {};
-  @Input() anchorFragment: string = '';
-
-  constructor() {
-  }
-
-  ngOnInit() {
-    console.log(this.link, this.queryParams, this.anchorFragment);
-  }
+  @Input() fragment: string = '';
 }

@@ -19,7 +19,8 @@ export class HomeComponent {
   
   parsers = [DynamicLinkParser];
   content = `
-    <p>Many wise and powerful Jedi sat on the High Council in the final days of the Republic, such as <a href="${this.protocol}//${this.hostname}:${this.port}/jedi/windu">Mace Windu</a>, 
+    <p>Many wise and powerful Jedi sat on the High Council in the final days of the Republic, such as
+    <a href="${this.protocol}//${this.hostname}:${this.port}/jedi/windu">Mace Windu</a>, 
     <a href="//${this.hostname}:${this.port}/jedi/kit_fisto#someAnchor" someClass="testClass">Kit Fisto</a> and 
     <a href="/jedi/yoda?someQueryParam=someValue&anotherQueryParam=anotherValue#andAnAnchor">Yoda</a>.</p>
   `;

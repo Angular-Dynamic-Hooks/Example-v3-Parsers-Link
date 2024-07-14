@@ -1,7 +1,8 @@
-@if (link) {
-  <a [routerLink]="link"
-    [queryParams]="queryParams ? queryParams : {}" 
-    [fragment]="anchorFragment ? anchorFragment : undefined"
+@if (routerLink) {
+  <a 
+    [routerLink]="routerLink" 
+    [queryParams]="queryParams || {}" 
+    [fragment]="fragment || undefined"
   >
     <ng-content></ng-content>
   </a>
