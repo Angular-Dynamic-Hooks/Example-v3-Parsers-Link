@@ -15,7 +15,7 @@ export class AppComponent {
   constructor(public router: Router) {
     router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event) => {
       // This just finds out the name of the current component loaded in <router-outlet>
-      this.activeRouteComponent = router.routerState.snapshot.root.children[0].component!['name'];
+      this.activeRouteComponent = router.routerState.snapshot.root.children[0].component!['name'].replace('_', '');
     });
   }
   

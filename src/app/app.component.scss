@@ -3,30 +3,33 @@
   width: 100%;
   box-sizing: border-box;
   padding: 15px;
-  background-color: #333;
+  background-color: #393d46;
   font-family: sans-serif;
 }
 
 #outlet {
 }
 
-#outlet-title {
-  font-size: 18px;
-}
+  #outlet-title {
+    font-size: 18px;
+  }
 
-#outlet-title-label {
-  margin: 0px 10px 0px 0px;
-  color: #909090;
-}
+    #outlet-title-label {
+      margin: 0px 10px 0px 0px;
+      color: #909090;
+    }
 
-#outlet-title-value {
-  color: #54c7da;
-}
+    #outlet-title-value {
+      color: #54c7da;
+    }
 
-#outlet-background {
-  display: block;
-  max-width: 500px;
-  background-color: #ffffff;
-  padding: 20px 25px;
-  box-sizing: border-box;
-}
+  #outlet-background {
+    display: block;
+    max-width: 500px;
+    background-color: #535b6b;
+    color: white;
+    padding: 25px;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+
