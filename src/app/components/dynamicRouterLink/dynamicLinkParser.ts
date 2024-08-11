@@ -7,36 +7,36 @@ import { DynamicLinkComponent } from './dynamicLink.component';
   providedIn: 'root'
 })
 export class DynamicLinkParser implements HookParser {
-    base;
+  base;
 
-    constructor(@Inject(DOCUMENT) private document: Document) {
-        this.base = `${this.document.location.protocol}//${this.document.location.hostname}`;
-    }
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    this.base = `${this.document.location.protocol}//${this.document.location.hostname}`;
+  }
 
-    public findHookElements(contentElement: HTMLElement, context: any, options: ParseOptions): any[] {
-        // First get all link elements
-        return Array.from(contentElement.querySelectorAll('a[href]'))
-        // Then filter them so that only those with own hostname remain
-        .filter(linkElement => {
-            const url = new URL(linkElement.getAttribute('href')!, this.base);
-            return url.hostname === this.document.location.hostname;
-        });
-    }
+  public findHookElements(contentElement: HTMLElement): any[] {
+    // First get all link elements
+    return Array.from(contentElement.querySelectorAll('a[href]'))
+    // Then filter them so that only those with own hostname are returned
+    .filter(linkElement => {
+      const url = new URL(linkElement.getAttribute('href')!, this.base);
+      return url.hostname === this.document.location.hostname;
+    });
+  }
 
-    public loadComponent(hookId: number, hookValue: HookValue, context: any, childNodes: Element[], options: ParseOptions): HookComponentData {
-        return { component: DynamicLinkComponent };
-    }
+  public loadComponent(): HookComponentData {
+    return { component: DynamicLinkComponent };
+  }
 
-    public getBindings(hookId: number, hookValue: HookValue, context: any, options: ParseOptions): HookBindings {
-        const url = new URL(hookValue.elementSnapshot.getAttribute('href')!, this.base);
+  public getBindings(hookId: number, hookValue: HookValue): HookBindings {
+    const url = new URL(hookValue.elementSnapshot.getAttribute('href')!, this.base);
 
-        // Extract what we need from the URL object and pass it along to DynamicLinkComponent
-        return {
-            inputs: {
-                path: url.pathname,
-                queryParams: Object.fromEntries(url.searchParams.entries()),
-                fragment: url.hash.replace('#', '')
-            }
-        };
-    }
+    // Extract what we need from the URL object and pass it along to DynamicLinkComponent
+    return {
+      inputs: {
+        path: url.pathname,
+        queryParams: Object.fromEntries(url.searchParams.entries()),
+        fragment: url.hash.replace('#', '')
+      }
+    };
+  }
 }
