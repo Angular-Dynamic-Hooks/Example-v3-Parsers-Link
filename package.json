@@ -1,5 +1,5 @@
 {
-  "name": "parsers-link",
+  "name": "ngx-dynamic-hooks-v3-example-parsers-link",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -18,7 +18,7 @@
     "@angular/platform-browser": "^18.1.0",
     "@angular/platform-browser-dynamic": "^18.1.0",
     "@angular/router": "^18.1.0",
-    "ngx-dynamic-hooks": "file:../../../workspace/dist/ngx-dynamic-hooks",
+    "ngx-dynamic-hooks": "^3.0.0-beta.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
