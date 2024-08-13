@@ -34,8 +34,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "preserveSymlinks": true
+            "scripts": []
           },
           "configurations": {
             "production": {
